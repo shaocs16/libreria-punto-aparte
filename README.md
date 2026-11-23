@@ -4,11 +4,11 @@ Gestión de saldo prepago. Backend Java 21 + Spring Boot + SQLite; frontend Reac
 
 ## Ejecutarlo para verlo
 
-La forma más simple: **doble clic en `iniciar.bat`**. Arranca la aplicación, espera a que responda y abre el navegador en http://localhost:8080. Al cerrar la ventana (o con `Ctrl+C`) se detiene y limpia los procesos.
+La forma más simple: **doble clic en `iniciar.bat`**. Arranca la aplicación, espera a que responda y abre el navegador en la URL HTTPS de Tailscale (`https://<dominio>.ts.net`); si Serve no responde, usa http://localhost:8080 y avisa. Al cerrar la ventana (o con `Ctrl+C`) se detiene y limpia los procesos.
 
 | Fichero | Para qué |
 |---|---|
-| `iniciar.bat` | Arranca backend y frontend (un solo proceso: el frontend va dentro del jar) y abre el navegador. Si ya está en marcha, solo abre el navegador. |
+| `iniciar.bat` | Arranca backend y frontend (un solo proceso: el frontend va dentro del jar) y abre el navegador: HTTPS de Tailscale si está disponible; si no, localhost. Si ya está en marcha, solo abre el navegador. |
 | `construir.bat` | Instala dependencias, pasa los tests del frontend, compila el frontend y empaqueta el jar. Hay que ejecutarlo la primera vez y tras cambiar código. |
 | `crear-acceso-directo.bat` | Crea el acceso directo «Papeleria» en el Escritorio. |
 

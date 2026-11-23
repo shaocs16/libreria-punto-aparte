@@ -237,7 +237,10 @@ Arrancar desde la raíz:
 .\iniciar.bat
 ```
 
-1. Confirmar que abre http://localhost:8080.
+1. Confirmar que abre `https://DOMINIO_NUEVO_SERVIDOR/`. El lanzador detecta el
+   dominio con `tailscale status` (o con `PAPELERIA_ALLOWED_HOSTS`), comprueba
+   `/api/v1/health` por HTTPS y, si Serve aún no responde, cae a
+   http://localhost:8080 con un aviso.
 2. Mantener abierta la ventana del lanzador: al cerrarla se detiene la aplicación.
 3. Si la instalación es nueva, crear el PIN en **Ajustes**.
 4. Configurar copias de seguridad en un destino independiente y activar la copia diaria.
@@ -436,6 +439,7 @@ No omitir este paso si ya hay clientes, saldos o movimientos.
 | `403 FORBIDDEN_HOST` | Revisar `PAPELERIA_ALLOWED_HOSTS` en `.env` y en Windows, sin URL ni punto final; cerrar y arrancar mediante `iniciar.bat`. Reconstruir solo si el jar aún es anterior al soporte de variables. |
 | `403 FORBIDDEN_ORIGIN` al guardar | Abrir frontend y API por el mismo HTTPS; conservar rutas relativas y `X-Requested-With`; no usar Vite remoto ni otro proxy que cambie Host. |
 | `502` desde Serve | Java está arrancado y responde en `http://localhost:8080`; Serve apunta a `127.0.0.1:8080`. |
+| No se abre el navegador | Comprobar `http://127.0.0.1:8080/api/v1/health` (el lanzador sondea IPv4 porque `localhost` puede resolverse a `::1` y agotar el tiempo) y que Windows tenga un navegador predeterminado para HTTPS. |
 | No conecta desde el cliente | Misma tailnet, usuario aceptado, dispositivo aprobado, Tailscale activo y regla dirigida a la IP nueva:443. |
 | Sesión `local@…` por HTTPS | Revisar Serve HTTP y `forward-headers-strategy: none`; no usar un simple túnel TCP ni mandar identidades desde el frontend. |
 | Error de certificado | Usar el dominio completo del equipo, no su IP; comprobar HTTPS/MagicDNS y la fecha/hora. No omitir la validación TLS. |

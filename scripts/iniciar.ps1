@@ -7,7 +7,10 @@ Import-PapeleriaEnv -Path (Join-Path $projectRoot ".env")
 $jar = Join-Path $projectRoot "backend\target\papeleria-1.0.0.jar"
 $port = 8080
 $baseUrl = "http://localhost:$port"
-$statusUrl = "$baseUrl/api/v1/health"
+# La app escucha solo en IPv4 (server.address: 127.0.0.1). Con Invoke-WebRequest,
+# "localhost" puede resolverse primero a ::1 y agotar el tiempo de espera.
+$probeUrl = "http://127.0.0.1:$port"
+$statusUrl = "$probeUrl/api/v1/health"
 
 # Base de datos: PAPELERIA_DB si existe; si no, una carpeta del usuario (no requiere administrador).
 if ($env:PAPELERIA_DB) { $dbPath = $env:PAPELERIA_DB }
@@ -22,8 +25,50 @@ function Test-PapeleriaRunning {
     }
 }
 
+function Test-HttpsHealth {
+    param([string]$Url)
+    try {
+        # Tailscale exige TLS 1.2+; Windows PowerShell 5.1 puede no activarlo por defecto.
+        [Net.ServicePointManager]::SecurityProtocol = `
+            [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+        $response = Invoke-WebRequest -UseBasicParsing -Uri "$Url/api/v1/health" -TimeoutSec 4
+        return $response.StatusCode -eq 200
+    } catch {
+        return $false
+    }
+}
+
+# Dominio Tailscale: primero el estado real de Tailscale; si no, el de .env.
+function Get-BrowserUrl {
+    $dns = $null
+    if (Get-Command tailscale -ErrorAction SilentlyContinue) {
+        try {
+            $status = tailscale status --json 2>$null | ConvertFrom-Json
+            if ($status.Self -and $status.Self.DNSName) {
+                $dns = $status.Self.DNSName.TrimEnd('.')
+            }
+        } catch { }
+    }
+    if (-not $dns -and $env:PAPELERIA_ALLOWED_HOSTS) {
+        $hosts = @(($env:PAPELERIA_ALLOWED_HOSTS -split ',') |
+            ForEach-Object { $_.Trim() -replace ':\d+$', '' } |
+            Where-Object { $_ -and $_ -notin @('localhost', '127.0.0.1', '::1') -and $_.Contains('.') })
+        $dns = $hosts | Where-Object { $_ -like '*.ts.net' } | Select-Object -First 1
+        if (-not $dns) { $dns = $hosts | Select-Object -First 1 }
+    }
+    if ($dns) {
+        $httpsUrl = "https://$dns"
+        if (Test-HttpsHealth $httpsUrl) { return $httpsUrl }
+        Write-Warning "$httpsUrl no responde. Se abrira $baseUrl. Revise Tailscale Serve y PAPELERIA_ALLOWED_HOSTS."
+    }
+    return $baseUrl
+}
+
 function Open-App {
-    if ($env:PAPELERIA_NO_BROWSER -ne "1") { Start-Process $baseUrl }
+    if ($env:PAPELERIA_NO_BROWSER -eq "1") { return }
+    $url = Get-BrowserUrl
+    Write-Host "Abriendo $url"
+    Start-Process $url
 }
 
 # En Windows, "java" puede ser un lanzador que crea un proceso hijo: se localiza por linea de comandos.
@@ -53,13 +98,27 @@ if (Test-PapeleriaRunning) {
 
 $busy = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue
 if ($busy) {
-    Write-Error "El puerto $port esta ocupado por otro programa (PID $($busy[0].OwningProcess)). Cierrelo e intentelo de nuevo."
+    $ownerId = $busy[0].OwningProcess
+    $owner = Get-CimInstance Win32_Process -Filter "ProcessId=$ownerId" -ErrorAction SilentlyContinue
+    if ($owner -and $owner.Name -match '^javaw?\.exe$' -and $owner.CommandLine -match 'papeleria-1\.0\.0\.jar') {
+        # Doble clic mientras arrancaba: esperar en vez de tratarlo como un puerto ajeno.
+        Write-Host "Papeleria esta arrancando (PID $ownerId). Esperando a que responda..."
+        $deadline = (Get-Date).AddSeconds(60)
+        while ((Get-Date) -lt $deadline) {
+            if (Test-PapeleriaRunning) { Open-App; exit 0 }
+            Start-Sleep -Milliseconds 500
+        }
+        Write-Warning "La aplicacion no responde en $probeUrl. Se abrira $baseUrl."
+        Open-App
+        exit 0
+    }
+    Write-Error "El puerto $port esta ocupado por otro programa (PID $ownerId). Cierrelo e intentelo de nuevo."
     exit 1
 }
 
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $dbPath) | Out-Null
 Write-Host "Papeleria - saldo de clientes"
-Write-Host "  Direccion:      $baseUrl"
+Write-Host "  Local:          $baseUrl"
 Write-Host "  Base de datos:  $dbPath"
 Write-Host "  Para parar:     cierre esta ventana o pulse Ctrl+C"
 Write-Host ""
