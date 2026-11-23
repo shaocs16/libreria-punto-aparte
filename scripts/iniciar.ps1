@@ -1,6 +1,9 @@
 $ErrorActionPreference = "Stop"
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
+. (Join-Path $PSScriptRoot "cargar-env.ps1")
+Import-PapeleriaEnv -Path (Join-Path $projectRoot ".env")
+
 $jar = Join-Path $projectRoot "backend\target\papeleria-1.0.0.jar"
 $port = 8080
 $baseUrl = "http://localhost:$port"

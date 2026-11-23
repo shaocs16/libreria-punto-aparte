@@ -1,6 +1,9 @@
 server:
+  # Tailscale Serve publica HTTPS y conecta al backend por loopback.
   address: 127.0.0.1
   port: 8080
+  # ActorFilter debe ver la IP del proxy local, no una cabecera del cliente.
+  forward-headers-strategy: none
 spring:
   application:
     name: papeleria
@@ -16,9 +19,8 @@ spring:
       max-request-size: 50MB
 app:
   db-path: ${PROGRAMDATA:./data}/Papeleria/data/papeleria.db
-  allowed-hosts:
-    - localhost:8080
-    - 127.0.0.1:8080
+  # Lista separada por comas; el lanzador carga la variable desde .env.
+  allowed-hosts: ${PAPELERIA_ALLOWED_HOSTS:localhost:8080,127.0.0.1:8080}
   local-actor-name: ${COMPUTERNAME:servidor}
 management:
   endpoints:

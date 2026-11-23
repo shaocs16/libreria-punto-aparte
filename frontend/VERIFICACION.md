@@ -41,6 +41,6 @@ La ejecución completa de las 18 se hizo en dos tandas con el mismo jar: 15 en l
 - **Revisión visual:** se generan capturas en `test-results/`, pero **no se han revisado visualmente**. No se afirma ninguna valoración estética; solo comprobaciones automáticas de desbordamiento, foco y funcionamiento.
 - **Aserción de consola de la caja:** el test provoca a propósito un 409 (saldo insuficiente) y un 403 (PIN incorrecto), y Chrome los anota como errores de consola. Se toleran solo esos dos códigos; cualquier otro error de consola o de JavaScript hace fallar el test.
 - **Accesibilidad:** hay comprobaciones manuales de teclado y foco automatizadas, pero no se ha pasado una herramienta como axe ni se ha probado con un lector de pantalla.
-- **Tailscale / segunda persona:** el acceso por `*.ts.net` no se ha probado; `app.allowed-hosts` aún no incluye ese host.
+- **Tailscale / segunda persona:** el 23/11/2026 se configuraron Serve HTTPS privado, Host permitido, ACL solo miembros → servidor:443 y aprobación de nuevos dispositivos. Se comprobó desde el servidor que Caja carga por HTTPS y `/api/v1/me` identifica la cuenta. Sigue pendiente la prueba desde el segundo equipo; ver `../ops/docs/tailscale/setup.md`.
 - **Impresión del ticket:** existe `@media print` para 72 mm, pero no se ha impreso en una impresora real.
 - **Dependencias:** `recharts` 2.x marcado como obsoleto por npm (la 3.x es la activa); sin migrar.

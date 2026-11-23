@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class WebSecurityTest {
+  static final String TAILSCALE_HOST = "pc-servidor.tail123.ts.net";
   static final Path DB;
   static {
     try {
@@ -34,7 +35,7 @@ class WebSecurityTest {
   @DynamicPropertySource
   static void props(DynamicPropertyRegistry r) {
     r.add("app.db-path", () -> DB.toString());
-    r.add("app.allowed-hosts", () -> "localhost");
+    r.add("PAPELERIA_ALLOWED_HOSTS", () -> "localhost," + TAILSCALE_HOST + "," + TAILSCALE_HOST + ":443");
   }
 
   @Autowired org.springframework.web.context.WebApplicationContext ctx;
@@ -71,6 +72,38 @@ class WebSecurityTest {
         .andExpect(jsonPath("$.name").value("Laura"));
     mvc.perform(get("/api/v1/me").header("Tailscale-User-Login", "laura@x.com")
             .with(r -> { r.setRemoteAddr("10.0.0.5"); return r; }))
+        .andExpect(jsonPath("$.login").value(org.hamcrest.Matchers.startsWith("local@")));
+  }
+
+  @Test
+  void tailscaleHttpsHostAndIdentityAccepted() throws Exception {
+    for (String host : new String[] { TAILSCALE_HOST, TAILSCALE_HOST + ":443" }) {
+      mvc.perform(get("/api/v1/me").header("Host", host)
+              .header("Tailscale-User-Login", "laura@x.com").header("Tailscale-User-Name", "Laura")
+              .with(r -> { r.setRemoteAddr("127.0.0.1"); return r; }))
+          .andExpect(status().isOk()).andExpect(jsonPath("$.login").value("laura@x.com"))
+          .andExpect(jsonPath("$.name").value("Laura"));
+    }
+  }
+
+  @Test
+  void tailscaleHttpsMutationRequiresMatchingOrigin() throws Exception {
+    mvc.perform(post("/api/v1/customers").header("Host", TAILSCALE_HOST)
+            .header("Origin", "https://" + TAILSCALE_HOST).header("X-Requested-With", "papeleria-ui")
+            .contentType(MediaType.APPLICATION_JSON).content("{\"code\":\"TS1\",\"name\":\"Tailscale\"}"))
+        .andExpect(status().isCreated());
+    mvc.perform(post("/api/v1/customers").header("Host", TAILSCALE_HOST)
+            .header("Origin", "https://otro.tail123.ts.net").header("X-Requested-With", "papeleria-ui")
+            .contentType(MediaType.APPLICATION_JSON).content("{}"))
+        .andExpect(status().isForbidden()).andExpect(jsonPath("$.code").value("FORBIDDEN_ORIGIN"));
+  }
+
+  @Test
+  void tailscaleIdentityCannotBeSpoofedFromTailnetIp() throws Exception {
+    mvc.perform(get("/api/v1/me").header("Host", TAILSCALE_HOST)
+            .header("Tailscale-User-Login", "laura@x.com")
+            .with(r -> { r.setRemoteAddr("100.71.114.124"); return r; }))
+        .andExpect(status().isOk())
         .andExpect(jsonPath("$.login").value(org.hamcrest.Matchers.startsWith("local@")));
   }
 

@@ -6,10 +6,10 @@ Estado a 18/11/2026. Backend y frontend están hechos y verificados (ver `fronte
 
 | Pendiente | Si no se hace |
 |---|---|
-| **Acceso de la 2ª persona (Tailscale):** añadir el `*.ts.net` del equipo a `app.allowed-hosts` (`backend/src/main/resources/application.yml`), ejecutar `tailscale serve --bg 8080` y configurar la ACL (aprobación de dispositivos, expiración de claves, Funnel desactivado). | Solo se puede usar desde el PC servidor. Desde otro equipo responde 403 `FORBIDDEN_HOST`. |
+| **Acceso de la 2ª persona (Tailscale):** configurado el 23/11/2026: Serve HTTPS privado, ACL solo miembros → servidor:443, aprobación de nuevos dispositivos y modo desatendido. HTTPS, sesión y frontend comprobados desde el servidor. Falta probar desde el segundo equipo. Caducidad desactivada solo en el servidor; el iPhone mantiene 180 días. Ver `ops/docs/tailscale/setup.md`. | Falta confirmar el acceso y la identidad desde el cliente real. Retirar el servidor de Tailscale si se pierde, se compromete o deja de usarse. |
 | **Servicio de Windows (WinSW)** que arranque la app con el sistema y la reinicie si cae. Logs rotativos en `%ProgramData%\Papeleria\logs`. | Hay que lanzar `java -jar` a mano. Si el PC se reinicia o se cierra la ventana, la app se detiene y nadie puede cobrar ni consultar saldos. |
 | **Instalador `jpackage`** con Java incluido (MSI/EXE). | Hay que tener Java 21 instalado y ejecutar el jar a mano. Sin proceso limpio de actualización. |
-| **Documentación de operación** en `ops/docs/`: `instalacion.md`, `restore.md`, `reset-pin.md` y `tailscale/setup.md`. | Nadie más sabría instalar, recuperar o restablecer el PIN. |
+| **Documentación de operación** en `ops/docs/`: faltan `instalacion.md`, `restore.md` y `reset-pin.md`. `tailscale/setup.md` ya está creado. | Nadie más sabría instalar, recuperar o restablecer el PIN. |
 | **`Papeleria.exe --reset-pin`** como ejecutable. Hoy es `java -jar papeleria-1.0.0.jar --reset-pin`. | Si olvidan el PIN, solo se arregla desde consola. |
 | **Desactivar la suspensión** del PC servidor: `powercfg /change standby-timeout-ac 0`. | Si el PC se suspende, la 2ª persona pierde acceso. |
 
