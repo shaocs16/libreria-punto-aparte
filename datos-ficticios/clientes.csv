@@ -1,0 +1,41 @@
+﻿code;name;phone;document;notes;initial_balance
+C001;Diego Martínez Serrano;696101869;F1000001X;;5,00
+C002;Sofía Muñoz Ruiz;664320974;F1000002X;;65,00
+C003;Álvaro Blanco Navarro;687009699;F1000003X;;45,00
+C004;Paula Álvarez Muñoz;696928070;F1000004X;Cliente habitual;40,00
+C005;Paula Díaz López;602533192;;;35,00
+C006;Valeria Navarro Navarro;678087602;F1000006X;;
+C007;Rubén Sánchez Díaz;;F1000007X;;70,00
+C008;Alba Díaz Martínez;634837398;F1000008X;Recoge los pedidos por la tarde;15,00
+C009;Paula Gómez Vázquez;644562455;F1000009X;;25,00
+C010;Álvaro Serrano García;691752196;;;40,00
+C011;Daniel Gil Navarro;649202277;F1000011X;;5,00
+C012;Lucía Romero Gil;693568677;F1000012X;Papelería de oficina;
+C013;Irene Vázquez Navarro;686233370;F1000013X;;65,00
+C014;Daniel Muñoz Gil;;F1000014X;;75,00
+C015;Sofía Muñoz Pérez;604249427;;;70,00
+C016;Álvaro Sánchez Torres;600368631;F1000016X;Profesora de primaria;50,00
+C017;Álvaro Ruiz Domínguez;620743275;F1000017X;;45,00
+C018;Hugo Moreno Serrano;682508693;F1000018X;;
+C019;Alba Gil Gómez;641268719;F1000019X;;70,00
+C020;Valeria Domínguez Álvarez;603094328;;Papelería de oficina;80,00
+C021;Alba López Martínez;;F1000021X;;65,00
+C022;Alba García Domínguez;682851867;F1000022X;;5,00
+C023;Irene Ruiz Álvarez;695377457;F1000023X;;30,00
+C024;Martina Muñoz Martínez;646702216;F1000024X;Pide factura;
+C025;Paula Gil Álvarez;698048128;;;5,00
+C026;Daniel Gómez Gil;622211939;F1000026X;;45,00
+C027;Diego Álvarez Torres;636033715;F1000027X;;75,00
+C028;Paula Ruiz Pérez;;F1000028X;Autónomo, compra folios y tóner;25,00
+C029;Álvaro Díaz Navarro;692833569;F1000029X;;80,00
+C030;Adrián Pérez Ruiz;604361751;;;
+C031;Paula Gil Navarro;613138994;F1000031X;;55,00
+C032;Lucía Sánchez Ruiz;615365272;F1000032X;Cliente habitual;45,00
+C033;Paula Pérez Muñoz;630410760;F1000033X;;30,00
+C034;Martina Romero Pérez;606885702;F1000034X;;60,00
+C035;Marcos Gómez López;;;;15,00
+C036;Marcos Pérez López;666534722;F1000036X;Autónomo, compra folios y tóner;
+C037;Julia Martínez Blanco;678022698;F1000037X;;50,00
+C038;Noa Blanco Moreno;602009640;F1000038X;;30,00
+C039;Noa Ruiz Sánchez;620863827;F1000039X;;40,00
+C040;Diego Gómez Vázquez;636141762;;Papelería de oficina;65,00

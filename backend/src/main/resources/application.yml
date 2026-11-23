@@ -1,0 +1,27 @@
+server:
+  address: 127.0.0.1
+  port: 8080
+spring:
+  application:
+    name: papeleria
+  datasource:
+    # Los DataSource los define DataSourceConfig
+  flyway:
+    enabled: true
+  jackson:
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+app:
+  db-path: ${PROGRAMDATA:./data}/Papeleria/data/papeleria.db
+  allowed-hosts:
+    - localhost:8080
+    - 127.0.0.1:8080
+  local-actor-name: ${COMPUTERNAME:servidor}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

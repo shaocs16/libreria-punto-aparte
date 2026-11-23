@@ -1,0 +1,32 @@
+# Dependencias y compilados
+node_modules/
+backend/target/
+frontend/dist/
+
+# Build de React copiado al backend (se regenera con construir.bat)
+backend/src/main/resources/static/
+
+# Resultados de tests
+frontend/test-results/
+frontend/playwright-report/
+backend/target/surefire-reports/
+
+# Base de datos y datos locales (nunca subir saldos de clientes)
+*.db
+*.db-wal
+*.db-shm
+data/
+backups/
+logs/
+*.log
+
+# IDE y sistema
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Secretos
+.env
+*.pem

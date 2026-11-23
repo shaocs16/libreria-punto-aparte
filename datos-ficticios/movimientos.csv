@@ -1,0 +1,214 @@
+﻿row_id;customer_code;type;amount;note
+mov-0001;C001;SPEND;1,57;Carpeta archivadora
+mov-0002;C001;SPEND;2,10;Pegamento
+mov-0003;C001;TOPUP;50,00;Recarga en mostrador
+mov-0004;C001;SPEND;19,84;Fotocopias
+mov-0005;C001;SPEND;4,69;Calculadora
+mov-0006;C001;SPEND;16,81;Rotuladores
+mov-0007;C001;SPEND;6,05;Carpeta archivadora
+mov-0008;C002;SPEND;22,29;Folios 500 hojas
+mov-0009;C002;SPEND;17,85;Fotocopias
+mov-0010;C002;SPEND;12,76;Calculadora
+mov-0011;C002;SPEND;9,48;Fotocopias
+mov-0012;C002;TOPUP;10,00;Recarga en mostrador
+mov-0013;C002;SPEND;1,30;Mochila
+mov-0014;C003;SPEND;4,74;Rotuladores
+mov-0015;C003;SPEND;5,46;Pegamento
+mov-0016;C003;SPEND;16,27;Encuadernación
+mov-0017;C003;SPEND;18,45;Encuadernación
+mov-0018;C003;TOPUP;50,00;Recarga en mostrador
+mov-0019;C004;SPEND;7,21;Fotocopias
+mov-0020;C004;SPEND;3,01;Impresión a color
+mov-0021;C004;SPEND;1,33;Rotuladores
+mov-0022;C004;SPEND;11,76;Bolígrafos
+mov-0023;C004;SPEND;4,70;Calculadora
+mov-0024;C004;SPEND;2,49;Folios 500 hojas
+mov-0025;C004;SPEND;9,16;Fotocopias
+mov-0026;C005;SPEND;6,75;Folios 500 hojas
+mov-0027;C005;SPEND;16,87;Material escolar
+mov-0028;C005;SPEND;5,38;Mochila
+mov-0029;C005;SPEND;4,56;Folios 500 hojas
+mov-0030;C005;TOPUP;50,00;Recarga en mostrador
+mov-0031;C006;TOPUP;10,00;Recarga en mostrador
+mov-0032;C006;TOPUP;50,00;Recarga en mostrador
+mov-0033;C006;SPEND;14,37;Material escolar
+mov-0034;C006;SPEND;14,84;Fotocopias
+mov-0035;C006;SPEND;3,48;Rotuladores
+mov-0036;C006;TOPUP;5,00;Recarga en mostrador
+mov-0037;C007;SPEND;2,07;Impresión a color
+mov-0038;C007;SPEND;9,44;Folios 500 hojas
+mov-0039;C007;SPEND;1,50;Material escolar
+mov-0040;C007;TOPUP;5,00;Recarga en mostrador
+mov-0041;C007;SPEND;1,66;Cuaderno A4
+mov-0042;C008;SPEND;0,82;Carpeta archivadora
+mov-0043;C008;SPEND;10,87;Cuaderno A4
+mov-0044;C008;SPEND;0,75;Folios 500 hojas
+mov-0045;C008;TOPUP;10,00;Recarga en mostrador
+mov-0046;C008;SPEND;4,17;Bolígrafos
+mov-0047;C008;SPEND;2,14;Bolígrafos
+mov-0048;C008;SPEND;4,36;Fotocopias
+mov-0049;C009;SPEND;21,30;Pegamento
+mov-0050;C009;SPEND;1,79;Rotuladores
+mov-0051;C009;TOPUP;50,00;Recarga en mostrador
+mov-0052;C010;SPEND;11,32;Pegamento
+mov-0053;C010;SPEND;11,02;Cuaderno A4
+mov-0054;C010;SPEND;2,20;Cuaderno A4
+mov-0055;C011;SPEND;1,71;Bolígrafos
+mov-0056;C011;SPEND;1,87;Calculadora
+mov-0057;C011;TOPUP;20,00;Recarga en mostrador
+mov-0058;C011;TOPUP;20,00;Recarga en mostrador
+mov-0059;C012;TOPUP;20,00;Recarga en mostrador
+mov-0060;C012;SPEND;8,08;Calculadora
+mov-0061;C012;TOPUP;5,00;Recarga en mostrador
+mov-0062;C012;SPEND;11,07;Rotuladores
+mov-0063;C012;SPEND;2,73;Carpeta archivadora
+mov-0064;C012;TOPUP;10,00;Recarga en mostrador
+mov-0065;C013;SPEND;18,80;Cuaderno A4
+mov-0066;C013;SPEND;3,46;Encuadernación
+mov-0067;C013;TOPUP;5,00;Recarga en mostrador
+mov-0068;C013;SPEND;10,07;Material escolar
+mov-0069;C013;SPEND;11,94;Folios 500 hojas
+mov-0070;C014;TOPUP;10,00;Recarga en mostrador
+mov-0071;C014;SPEND;8,76;Calculadora
+mov-0072;C014;SPEND;1,79;Impresión a color
+mov-0073;C014;SPEND;9,43;Pegamento
+mov-0074;C014;SPEND;16,02;Pegamento
+mov-0075;C014;SPEND;24,24;Fotocopias
+mov-0076;C014;SPEND;12,81;Pegamento
+mov-0077;C015;SPEND;5,54;Rotuladores
+mov-0078;C015;SPEND;11,68;Impresión a color
+mov-0079;C015;SPEND;6,92;Carpeta archivadora
+mov-0080;C015;TOPUP;5,00;Recarga en mostrador
+mov-0081;C015;SPEND;13,23;Calculadora
+mov-0082;C015;TOPUP;15,00;Recarga en mostrador
+mov-0083;C015;SPEND;15,34;Material escolar
+mov-0084;C016;SPEND;12,83;Pegamento
+mov-0085;C016;SPEND;2,67;Rotuladores
+mov-0086;C016;SPEND;17,93;Rotuladores
+mov-0087;C016;SPEND;15,67;Encuadernación
+mov-0088;C016;TOPUP;30,00;Recarga en mostrador
+mov-0089;C016;TOPUP;15,00;Recarga en mostrador
+mov-0090;C016;TOPUP;15,00;Recarga en mostrador
+mov-0091;C017;TOPUP;30,00;Recarga en mostrador
+mov-0092;C017;TOPUP;20,00;Recarga en mostrador
+mov-0093;C017;SPEND;5,42;Pegamento
+mov-0094;C017;SPEND;3,28;Impresión a color
+mov-0095;C017;SPEND;14,14;Bolígrafos
+mov-0096;C017;SPEND;17,51;Calculadora
+mov-0097;C018;TOPUP;5,00;Recarga en mostrador
+mov-0098;C018;SPEND;4,45;Calculadora
+mov-0099;C018;TOPUP;50,00;Recarga en mostrador
+mov-0100;C018;SPEND;4,48;Impresión a color
+mov-0101;C018;SPEND;5,89;Cuaderno A4
+mov-0102;C018;SPEND;11,18;Cuaderno A4
+mov-0103;C018;SPEND;23,45;Bolígrafos
+mov-0104;C019;TOPUP;30,00;Recarga en mostrador
+mov-0105;C019;SPEND;4,81;Carpeta archivadora
+mov-0106;C019;TOPUP;20,00;Recarga en mostrador
+mov-0107;C019;SPEND;16,36;Fotocopias
+mov-0108;C019;SPEND;11,18;Calculadora
+mov-0109;C020;TOPUP;5,00;Recarga en mostrador
+mov-0110;C020;SPEND;10,80;Calculadora
+mov-0111;C020;TOPUP;10,00;Recarga en mostrador
+mov-0112;C020;SPEND;0,90;Mochila
+mov-0113;C021;SPEND;11,12;Fotocopias
+mov-0114;C021;SPEND;18,95;Mochila
+mov-0115;C021;SPEND;0,75;Impresión a color
+mov-0116;C021;SPEND;22,88;Calculadora
+mov-0117;C021;SPEND;4,67;Impresión a color
+mov-0118;C021;TOPUP;20,00;Recarga en mostrador
+mov-0119;C022;TOPUP;50,00;Recarga en mostrador
+mov-0120;C022;TOPUP;20,00;Recarga en mostrador
+mov-0121;C022;SPEND;7,53;Carpeta archivadora
+mov-0122;C022;SPEND;14,17;Folios 500 hojas
+mov-0123;C022;TOPUP;10,00;Recarga en mostrador
+mov-0124;C022;SPEND;17,81;Pegamento
+mov-0125;C023;SPEND;14,99;Rotuladores
+mov-0126;C023;SPEND;13,48;Carpeta archivadora
+mov-0127;C023;TOPUP;10,00;Recarga en mostrador
+mov-0128;C023;SPEND;7,96;Calculadora
+mov-0129;C023;SPEND;1,91;Calculadora
+mov-0130;C024;TOPUP;30,00;Recarga en mostrador
+mov-0131;C024;SPEND;14,43;Mochila
+mov-0132;C024;SPEND;12,15;Pegamento
+mov-0133;C025;SPEND;4,07;Folios 500 hojas
+mov-0134;C025;TOPUP;5,00;Recarga en mostrador
+mov-0135;C025;TOPUP;10,00;Recarga en mostrador
+mov-0136;C025;SPEND;10,77;Fotocopias
+mov-0137;C026;TOPUP;15,00;Recarga en mostrador
+mov-0138;C026;TOPUP;10,00;Recarga en mostrador
+mov-0139;C026;SPEND;23,41;Material escolar
+mov-0140;C026;SPEND;18,37;Mochila
+mov-0141;C027;TOPUP;5,00;Recarga en mostrador
+mov-0142;C027;SPEND;2,53;Pegamento
+mov-0143;C027;SPEND;7,80;Mochila
+mov-0144;C027;SPEND;21,36;Material escolar
+mov-0145;C027;SPEND;24,44;Encuadernación
+mov-0146;C027;SPEND;8,10;Impresión a color
+mov-0147;C027;TOPUP;50,00;Recarga en mostrador
+mov-0148;C028;TOPUP;20,00;Recarga en mostrador
+mov-0149;C028;TOPUP;15,00;Recarga en mostrador
+mov-0150;C028;TOPUP;50,00;Recarga en mostrador
+mov-0151;C028;SPEND;7,84;Calculadora
+mov-0152;C028;SPEND;24,13;Fotocopias
+mov-0153;C028;SPEND;10,29;Folios 500 hojas
+mov-0154;C029;SPEND;24,40;Calculadora
+mov-0155;C029;SPEND;12,59;Encuadernación
+mov-0156;C029;TOPUP;15,00;Recarga en mostrador
+mov-0157;C029;SPEND;12,40;Fotocopias
+mov-0158;C029;SPEND;23,87;Calculadora
+mov-0159;C029;SPEND;17,39;Material escolar
+mov-0160;C030;TOPUP;50,00;Recarga en mostrador
+mov-0161;C030;SPEND;23,90;Rotuladores
+mov-0162;C030;SPEND;13,90;Cuaderno A4
+mov-0163;C031;TOPUP;50,00;Recarga en mostrador
+mov-0164;C031;SPEND;18,76;Cuaderno A4
+mov-0165;C031;SPEND;14,54;Impresión a color
+mov-0166;C031;SPEND;21,58;Rotuladores
+mov-0167;C031;SPEND;3,94;Fotocopias
+mov-0168;C031;SPEND;17,83;Fotocopias
+mov-0169;C031;SPEND;22,46;Bolígrafos
+mov-0170;C032;TOPUP;50,00;Recarga en mostrador
+mov-0171;C032;TOPUP;10,00;Recarga en mostrador
+mov-0172;C032;SPEND;11,74;Material escolar
+mov-0173;C032;SPEND;0,72;Cuaderno A4
+mov-0174;C033;SPEND;12,63;Encuadernación
+mov-0175;C033;TOPUP;15,00;Recarga en mostrador
+mov-0176;C033;SPEND;9,99;Pegamento
+mov-0177;C034;TOPUP;30,00;Recarga en mostrador
+mov-0178;C034;TOPUP;15,00;Recarga en mostrador
+mov-0179;C034;SPEND;24,27;Impresión a color
+mov-0180;C034;TOPUP;10,00;Recarga en mostrador
+mov-0181;C034;SPEND;3,61;Calculadora
+mov-0182;C034;SPEND;16,48;Fotocopias
+mov-0183;C035;SPEND;7,28;Folios 500 hojas
+mov-0184;C035;TOPUP;30,00;Recarga en mostrador
+mov-0185;C035;TOPUP;30,00;Recarga en mostrador
+mov-0186;C036;TOPUP;15,00;Recarga en mostrador
+mov-0187;C036;SPEND;9,86;Cuaderno A4
+mov-0188;C036;SPEND;1,60;Rotuladores
+mov-0189;C036;SPEND;1,69;Pegamento
+mov-0190;C036;TOPUP;10,00;Recarga en mostrador
+mov-0191;C036;TOPUP;50,00;Recarga en mostrador
+mov-0192;C037;SPEND;18,29;Pegamento
+mov-0193;C037;SPEND;14,52;Pegamento
+mov-0194;C037;SPEND;8,05;Mochila
+mov-0195;C037;SPEND;8,41;Cuaderno A4
+mov-0196;C037;TOPUP;30,00;Recarga en mostrador
+mov-0197;C037;TOPUP;50,00;Recarga en mostrador
+mov-0198;C037;SPEND;24,02;Encuadernación
+mov-0199;C038;SPEND;0,62;Material escolar
+mov-0200;C038;SPEND;20,74;Calculadora
+mov-0201;C038;TOPUP;50,00;Recarga en mostrador
+mov-0202;C038;SPEND;6,83;Folios 500 hojas
+mov-0203;C038;SPEND;19,72;Cuaderno A4
+mov-0204;C038;SPEND;17,28;Mochila
+mov-0205;C038;SPEND;14,47;Pegamento
+mov-0206;C039;SPEND;22,34;Encuadernación
+mov-0207;C039;SPEND;3,49;Carpeta archivadora
+mov-0208;C039;SPEND;6,02;Folios 500 hojas
+mov-0209;C039;TOPUP;20,00;Recarga en mostrador
+mov-0210;C040;SPEND;12,84;Material escolar
+mov-0211;C040;SPEND;10,34;Mochila
+mov-0212;C040;TOPUP;20,00;Recarga en mostrador
+mov-0213;C040;SPEND;5,57;Bolígrafos
